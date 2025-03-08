@@ -4,6 +4,7 @@ export default defineNuxtConfig({
   // https://nuxt.com/modules
   modules: [
     '@nuxt/eslint',
+    '@pinia/nuxt'
   ],
 
   css: ['@/assets/scss/main.scss'],

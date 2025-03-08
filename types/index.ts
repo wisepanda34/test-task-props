@@ -1,3 +1,5 @@
+import type { Categories } from "~~/constants";
+
 export interface IContact {
     id: number,
     name: string,

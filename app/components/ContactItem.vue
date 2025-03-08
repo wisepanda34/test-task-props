@@ -6,7 +6,7 @@
     <p>Tel: {{ contact.tel }}</p>
     <p>Category: {{ contact.category }}</p>
     <div class="contact-item__buttons">
-      <a href="/edit/:id" class="contact-item__edit">Edit</a>
+      <NuxtLink :to="`/edit-contact/${contact.id}`" class="contact-item__edit">Edit</NuxtLink>
       <BaseButton text="Delete"/>
     </div>
   </div>
