@@ -4,7 +4,6 @@
 <template>
   <div class="edit-contact">
     <Form />
-
   </div>
 </template>
 

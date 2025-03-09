@@ -6,7 +6,7 @@ export interface IContact {
     surname: string,
     email: string,
     tel: string,
-    category: Categories
+    category: Categories | null
 }
 
 

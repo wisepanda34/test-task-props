@@ -28,10 +28,12 @@ const initialContacts: IContact[] = [
     category: Categories.Family,
   },
 ];
+const initialLastId: number = 3
 
 export const useContactStore = defineStore('contact', {
   state: () => ({
     contacts: initialContacts as IContact[],
+    lastId: initialLastId as number,
   }),
   getters: {
     getContactById: (state) => (id: number) => {
@@ -44,7 +46,10 @@ export const useContactStore = defineStore('contact', {
 
   actions: {
     addContact(contact: IContact) {
+      const newId = this.lastId + 1;
+      contact.id = newId;
       this.contacts.push(contact);
+      this.lastId = newId;
     },
 
     removeContact(id: number) {
@@ -52,6 +57,8 @@ export const useContactStore = defineStore('contact', {
     },
 
     updateContact(updatedContact: IContact) {
+      console.log(updatedContact);
+
       const index = this.contacts.findIndex((contact) => contact.id === updatedContact.id);
       if (index !== -1) {
         this.contacts[index] = updatedContact;

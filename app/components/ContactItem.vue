@@ -1,5 +1,6 @@
 <template>
   <div class="contact-item">
+    <p>Name: {{ contact.id }}</p>
     <p>Name: {{ contact.name }}</p>
     <p>Surame: {{ contact.surname }}</p>
     <p>Email: {{ contact.email }}</p>
@@ -7,7 +8,7 @@
     <p>Category: {{ contact.category }}</p>
     <div class="contact-item__buttons">
       <NuxtLink :to="`/edit-contact/${contact.id}`" class="contact-item__edit">Edit</NuxtLink>
-      <BaseButton text="Delete"/>
+      <BaseButton class="btn_danger" text="Delete"/>
     </div>
   </div>
 </template>

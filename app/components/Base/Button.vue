@@ -29,4 +29,14 @@ defineProps<{text: string}>()
 
   }
 }
+.btn_danger{
+  button{
+    background: red;
+    color: black;
+
+    &:hover {
+      background-color: rgb(219, 3, 3);
+    }
+  }
+}
 </style>
