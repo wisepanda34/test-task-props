@@ -12,16 +12,14 @@
 <script setup lang="ts">
 import { Categories } from '~~/constants';
 
-const props = defineProps({
-  modelValue:{
-    type: String as () => Categories | null,
-    default: null,
-  },
-  placeholder: {
-    type: String,
-    default: "Select category",
-  }
-})
+const props = withDefaults(defineProps<{
+  modelValue: Categories | null;
+  placeholder: string;
+}>(), {
+  modelValue: null,
+  placeholder: "Select category"
+});
+
 
 const emit = defineEmits(['update:modelValue'])
 
@@ -34,7 +32,7 @@ const toggleDropdown = () => {
 
 const selectCategory = (category: Categories) => {
   selectedCategory.value = category
-  emit('update:modelValue', 'category')
+  emit('update:modelValue', selectedCategory.value)
   isOpen.value = false
 }
 

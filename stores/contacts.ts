@@ -46,6 +46,8 @@ export const useContactStore = defineStore('contact', {
 
   actions: {
     addContact(contact: IContact) {
+      console.log('data ', contact);
+
       const newId = this.lastId + 1;
       contact.id = newId;
       this.contacts.push(contact);
