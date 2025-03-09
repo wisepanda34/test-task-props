@@ -8,7 +8,7 @@
     <p>Category: {{ contact.category }}</p>
     <div class="contact-item__buttons">
       <NuxtLink :to="`/edit-contact/${contact.id}`" class="contact-item__edit">Edit</NuxtLink>
-      <BaseButton class="btn_danger" text="Delete"/>
+      <BaseButton class="btn_danger" text="Delete" @click="onDelete"/>
     </div>
   </div>
 </template>
@@ -16,7 +16,17 @@
 <script setup lang="ts">
 import type { IContact } from '~~/types';
 
-defineProps<{contact: IContact}>()
+const props = defineProps<{
+  contact: IContact
+}>()
+
+const emit = defineEmits<{
+  (e: 'delete-contact', id: number): void
+}>()
+
+const onDelete = () => {
+  emit('delete-contact', props.contact.id)
+}
 
 </script>
 

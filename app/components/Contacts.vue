@@ -2,7 +2,7 @@
   <div class="contacts">
     <h1 class="text-h1">MY CONTACTS</h1>
     <BaseButton text="Add contact" @click="addContact"/>
-    <ContactItem v-for="item in contactStore.contacts" :key="item.id" :contact="item"/>
+    <ContactItem v-for="item in contactStore.contacts" :key="item.id" :contact="item" v-on:delete-contact="onDelete"/>
     <BaseModal v-if="modalStore.isOpenModal"/>
   </div>
 </template>
@@ -18,6 +18,10 @@ const modalStore = useModalStore()
 
 const addContact = () => {
   modalStore.openModal()
+}
+
+const onDelete = (id: number) => {
+  contactStore.removeContact(id)
 }
 
 </script>
